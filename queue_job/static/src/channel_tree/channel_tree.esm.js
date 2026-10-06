@@ -6,6 +6,7 @@ import {loadCSS, loadJS} from "@web/core/assets";
 import {_t} from "@web/core/l10n/translation";
 import {registry} from "@web/core/registry";
 import {useService} from "@web/core/utils/hooks";
+import {escape} from "@web/core/utils/strings";
 
 import weUtils from "@web_editor/js/common/utils";
 
@@ -97,7 +98,7 @@ class ChannelTree extends Component {
         } else if (channel.effective_paused) {
             pausedStatus = ` (${_t("Paused by parent")})`;
         }
-        const headerTitle = `${channel.complete_name}${pausedStatus}`;
+        const headerTitle = `${escape(channel.complete_name)}${pausedStatus}`;
         const header = `<div style="margin-bottom: 6px;"><b>${headerTitle}</b></div>`;
 
         const lines = rows
